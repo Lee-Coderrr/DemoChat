@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:insert="~{layouts/header :: head}"> </div>
+    
+</head>
+
+<body>
+    <section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+                <i class="fas fa-comment-alt"></i> SimpleChat
+            </div>
+            <div class="msger-header-options">
+                <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
+
+        <main id="msgerChat" class="msger-chat">
+            <div th:each="message : ${msg}" class="msg"
+                th:classappend="${message.username == name} ? 'right-msg' : 'left-msg'">
+                <div class="msg-img" style="background-image: url(/images/profile.svg)"> </div>
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                        <div class="msg-info-name" th:text="${message.username}"></div>
+                        <div class="msg-info-time" th:text="${message.timestamp}"></div>
+                    </div>
+                    <div class="msg-text" th:text="${message.text}"></div>
+                </div>
+            </div>
+        </main>
+
+        <form id="msgerForm" class="msger-inputarea">
+            <input id="msgerInput" type="text" class="msger-input" placeholder="Enter your message...">
+            <input type="hidden" id="user_id" name="user_id" class="form-control" th:value="${id}">
+            <input type="hidden" id="username" name="username" class="form-control" th:value="${name}">
+            <button type="submit" class="msger-send-btn">Send</button>
+
+            <!-- input text가 없는 경우, send 버튼 작동하지 않도록 구현 -->
+
+                
+            
+        </form>
+    </section>
+
+    <div th:insert="~{layouts/header :: script}"></div>
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>
