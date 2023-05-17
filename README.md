@@ -2,11 +2,22 @@
 
 이 프로젝트는 Spring Boot, Thymeleaf, WebSocket을 사용하여 구축된 간단한 채팅 애플리케이션입니다. 사용자들은 실시간으로 메시지를 주고받을 수 있습니다.
 
+## 화면
+- main 화면
+![main](images/main.png)
+
+
+- chat 화면
+![main](images/chat_1.png)
+![main](images/chat_2.png)
+
+
 ## 기능
 
 1. 실시간 메시지 전송
 2. 사용자별 메시지 구분
 3. 메시지 전송 시간 표시
+4. 사용자 이름 및 메시지 내용 관련 예외 처리
 
 ## 사용한 기술
 
